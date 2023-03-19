@@ -19,10 +19,10 @@ const UserSchema = new Mongoose.Schema(
             type: String,
             required: true
         },
-        verified: {
+        usertype: {
             type: String,
             required: true,
-            default: "pending"
+            default: "faculty"
         }
     }, { timestamps: true }
 )

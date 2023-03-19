@@ -79,7 +79,7 @@ const AdminCreateCourse = ({ adminDetails, setAdminLogged }) => {
         <div>
             <AdminTop adminDetails={adminDetails} />
             <div className="adminMainContent">
-                <AdminSide renderPage={renderPage} setAdminLogged={setAdminLogged} />
+                <AdminSide adminDetails={adminDetails} renderPage={renderPage} setAdminLogged={setAdminLogged} />
                 {
                     isLoading ?
                         <Loader adminLoader={true} /> :
@@ -123,10 +123,20 @@ const AdminCreateCourse = ({ adminDetails, setAdminLogged }) => {
                                     </div>
                                 </div>
                                 <div className="formField">
-                                    <label className="fieldTitle" htmlFor="coursePrice">
-                                        Course Price (In INR)<span>*</span>
-                                    </label>
-                                    <input onChange={(e) => setCurCourse({ ...curCourse, price: e.target.value })} value={curCourse?.price} id="coursePrice" type="number" placeholder="Amount" />
+                                    <div className="dateBox">
+                                        <div className="subFormField">
+                                            <label className="fieldTitle" htmlFor="coursePrice">
+                                                Course Price (In INR)<span>*</span>
+                                            </label>
+                                            <input onChange={(e) => setCurCourse({ ...curCourse, price: e.target.value })} value={curCourse?.price} id="coursePrice" type="number" placeholder="Amount" />
+                                        </div>
+                                        {/* <div className="subFormField">
+                                            <label className="fieldTitle" htmlFor="faculty">
+                                                Faculty Name<span>*</span>
+                                            </label>
+                                            <input onChange={(e) => setCurCourse({ ...curCourse, faculty: e.target.value })} value={curCourse?.faculty} id="faculty" type="text" placeholder="Faculty" />
+                                        </div> */}
+                                    </div>
                                 </div>
                                 <p className={isError ? "resMsg error" : "resMsg"}>
                                     {resMsg}

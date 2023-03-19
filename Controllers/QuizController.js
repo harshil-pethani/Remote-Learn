@@ -31,36 +31,44 @@ export const getSingleQuizData = {
         next();
     },
     controller: async (req, res) => {
-        try {
-            const findQuizData = await Quiz.findById(req.params.id);
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findQuizData = await Quiz.findById(req.params.id);
 
-            if (!findQuizData) {
-                return res.status(400).send("Quiz Data Not Found")
+                if (!findQuizData) {
+                    return res.status(400).send("Quiz Data Not Found")
+                }
+
+                return res.status(200).send(findQuizData);
+
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Quiz Data Fetching Failed");
             }
-
-            return res.status(200).send(findQuizData);
-
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Quiz Data Fetching Failed");
+        } else {
+            return res.status(400).send("You can't see Consulting student details")
         }
     }
 }
 
 export const getAllQuizes = {
     controller: async (req, res) => {
-        try {
-            const findQuiz = await Quiz.find();
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findQuiz = await Quiz.find();
 
-            if (findQuiz.length == 0) {
-                return res.status(400).send("Quiz Submitted Data Not Found")
+                if (findQuiz.length == 0) {
+                    return res.status(400).send("Quiz Submitted Data Not Found")
+                }
+
+                return res.status(200).send(findQuiz);
+
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Quiz Submitted Data fetching Failed");
             }
-
-            return res.status(200).send(findQuiz);
-
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Quiz Submitted Data fetching Failed");
+        } else {
+            return res.status(400).send("You can't see the Cunsulting students details")
         }
     }
 }
@@ -73,13 +81,17 @@ export const deleteSingleQuizData = {
         next();
     },
     controller: async (req, res) => {
-        try {
-            await Quiz.findByIdAndDelete(req.params.id);
+        if (req.currUser.usertype === "owner") {
+            try {
+                await Quiz.findByIdAndDelete(req.params.id);
 
-            return res.status(200).send("Quiz Data Deleted Successful");
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Quiz Data Delete failed");
+                return res.status(200).send("Quiz Data Deleted Successful");
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Quiz Data Delete failed");
+            }
+        } else {
+            return res.status(400).send("You can't delete consulting student details")
         }
     }
 }

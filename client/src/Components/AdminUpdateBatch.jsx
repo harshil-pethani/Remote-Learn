@@ -92,7 +92,7 @@ const AdminUpdateBatch = ({ adminDetails, setAdminLogged }) => {
         <div>
             <AdminTop adminDetails={adminDetails} />
             <div className="adminMainContent">
-                <AdminSide setAdminLogged={setAdminLogged} />
+                <AdminSide adminDetails={adminDetails} setAdminLogged={setAdminLogged} />
                 {
                     isLoading ?
                         <Loader adminLoader={true} /> :

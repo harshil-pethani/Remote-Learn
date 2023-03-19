@@ -8,28 +8,32 @@ export const bannerCreate = {
         next();
     },
     controller: async (req, res) => {
-        try {
-            const runningBanner = await Banner.findOne({ isrunning: true });
+        if (req.currUser.usertype === "owner") {
+            try {
+                const runningBanner = await Banner.findOne({ isrunning: true });
 
-            if (runningBanner) {
-                const expireBanner = await Banner.findByIdAndUpdate(runningBanner._id, {
-                    isrunning: false
+                if (runningBanner) {
+                    const expireBanner = await Banner.findByIdAndUpdate(runningBanner._id, {
+                        isrunning: false
+                    })
+                }
+                const newBanner = await Banner.create({
+                    bannertext: req.body.bannertext,
+                    startdate: req.body.startdate,
+                    enddate: req.body.enddate,
+                    bannercode: req.body.bannercode.toLowerCase(),
+                    discount: parseFloat(req.body.discount)
                 })
+                return res.status(201).json({
+                    "message": "Banner Creation Successful",
+                    ...newBanner._doc
+                });
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Banner Creation Failed");
             }
-            const newBanner = await Banner.create({
-                bannertext: req.body.bannertext,
-                startdate: req.body.startdate,
-                enddate: req.body.enddate,
-                bannercode: req.body.bannercode.toLowerCase(),
-                discount: parseFloat(req.body.discount)
-            })
-            return res.status(201).json({
-                "message": "Banner Creation Successful",
-                ...newBanner._doc
-            });
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Banner Creation Failed");
+        } else {
+            return res.status(400).send("You can't create the Offer Banner")
         }
     }
 }
@@ -44,39 +48,43 @@ export const bannerUpdate = {
         next();
     },
     controller: async (req, res) => {
-        try {
-            const findBanner = await Banner.findById(req.params.id);
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findBanner = await Banner.findById(req.params.id);
 
-            if (!findBanner) {
-                return res.status(400).send("Banner Not Found")
-            }
-
-            if (req.body.isrunning) {
-                const runningBanner = await Banner.findOne({ isrunning: true });
-
-                if (runningBanner) {
-                    const expireBanner = await Banner.findByIdAndUpdate(runningBanner._id, {
-                        isrunning: false
-                    })
+                if (!findBanner) {
+                    return res.status(400).send("Banner Not Found")
                 }
+
+                if (req.body.isrunning) {
+                    const runningBanner = await Banner.findOne({ isrunning: true });
+
+                    if (runningBanner) {
+                        const expireBanner = await Banner.findByIdAndUpdate(runningBanner._id, {
+                            isrunning: false
+                        })
+                    }
+                }
+
+                const updateBanner = await Banner.findByIdAndUpdate(req.params.id, {
+                    bannertext: req.body.bannertext,
+                    startdate: req.body.startdate,
+                    enddate: req.body.enddate,
+                    bannercode: req.body.bannercode.toLowerCase(),
+                    discount: req.body.discount,
+                    isrunning: req.body.isrunning
+                }, { new: true })
+
+                return res.status(200).send({
+                    "message": "Banner Updation Successful",
+                    ...updateBanner._doc
+                });
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Banner Updation Failed");
             }
-
-            const updateBanner = await Banner.findByIdAndUpdate(req.params.id, {
-                bannertext: req.body.bannertext,
-                startdate: req.body.startdate,
-                enddate: req.body.enddate,
-                bannercode: req.body.bannercode.toLowerCase(),
-                discount: req.body.discount,
-                isrunning: req.body.isrunning
-            }, { new: true })
-
-            return res.status(200).send({
-                "message": "Banner Updation Successful",
-                ...updateBanner._doc
-            });
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Banner Updation Failed");
+        } else {
+            return res.status(400).send("You can't Update the Offer details")
         }
     }
 }
@@ -89,42 +97,51 @@ export const bannerExpire = {
         next();
     },
     controller: async (req, res) => {
-        try {
-            const findBanner = await Banner.findById(req.params.id);
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findBanner = await Banner.findById(req.params.id);
 
-            if (!findBanner) {
-                return res.status(400).send("Banner Not Found")
+                if (!findBanner) {
+                    return res.status(400).send("Banner Not Found")
+                }
+
+                const expirebanner = await Banner.findByIdAndUpdate(req.params.id, {
+                    isrunning: false
+                }, { new: true })
+
+                return res.status(200).send({
+                    "message": "Banner Expire Successful",
+                    ...expirebanner._doc
+                });
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Banner Expire Failed");
             }
-
-            const expirebanner = await Banner.findByIdAndUpdate(req.params.id, {
-                isrunning: false
-            }, { new: true })
-
-            return res.status(200).send({
-                "message": "Banner Expire Successful",
-                ...expirebanner._doc
-            });
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Banner Expire Failed");
+        } else {
+            return res.status(400).send("You can't Expire the offer")
         }
     }
 }
 
 export const getAllBanners = {
     controller: async (req, res) => {
-        try {
-            const findBanners = await Banner.find();
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findBanners = await Banner.find();
 
-            if (findBanners.length == 0) {
-                return res.status(400).send("Banners Not Found")
+                if (findBanners.length == 0) {
+                    return res.status(400).send("Banners Not Found")
+                }
+
+                return res.status(200).send(findBanners);
+
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Banners Fetching Failed");
             }
 
-            return res.status(200).send(findBanners);
-
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Banners Fetching Failed");
+        } else {
+            return res.status(400).send("You can't see all the offer details")
         }
     }
 }
@@ -137,18 +154,22 @@ export const getSingleBanner = {
         next();
     },
     controller: async (req, res) => {
-        try {
-            const findBanner = await Banner.findById(req.params.id);
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findBanner = await Banner.findById(req.params.id);
 
-            if (!findBanner) {
-                return res.status(400).send("Banner Not Found")
+                if (!findBanner) {
+                    return res.status(400).send("Banner Not Found")
+                }
+
+                return res.status(200).send(findBanner);
+
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Banner Fetching Failed");
             }
-
-            return res.status(200).send(findBanner);
-
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Banner Fetching Failed");
+        } else {
+            return res.status(400).send("You can't see the banner details")
         }
     }
 }

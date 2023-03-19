@@ -5,7 +5,6 @@
   background-color: #222222;
   display: flex;
   align-items: center;
-  position: -webkit-sticky;
   position: sticky;
   z-index: 10;
   left: 0;
@@ -203,7 +202,6 @@
     flex-direction: column;
     justify-content: center;
     background-color: #038d9f;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
@@ -372,7 +370,6 @@
   .homeHeader .right {
     width: 100%;
     background-color: #222222;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     padding: 20px 10px;
@@ -433,7 +430,6 @@
 }
 .whoAreWe {
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding: 100px 0;
@@ -529,7 +525,6 @@
 @media screen and (max-width: 768px) {
   .whoAreWe {
     width: 100%;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     padding: 0;
@@ -632,7 +627,6 @@
   }
 }
 .highLight {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   overflow-x: hidden !important;
@@ -700,7 +694,6 @@
 
 @media screen and (max-width: 768px) {
   .highLight {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     overflow-x: hidden !important;
@@ -711,7 +704,6 @@
     position: relative;
   }
   .highLight .container {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
@@ -770,7 +762,6 @@
   background-color: #222222;
   color: white;
   min-height: 100vh;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
@@ -846,7 +837,6 @@
   .ourServices {
     background-color: #222222;
     color: white;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
@@ -855,7 +845,6 @@
   }
 }
 .testimonials {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
@@ -905,7 +894,6 @@
 .testimonials .container .slider .allSlides .slide {
   font-size: 200px;
   width: 1300px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;
@@ -933,7 +921,6 @@
   padding: 10px 0;
   padding-right: 50px;
   padding-left: 50px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -1010,7 +997,6 @@
 
 @media screen and (max-width: 768px) {
   .testimonials {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
@@ -1049,7 +1035,6 @@
   }
   .testimonials .container .slider {
     width: 100%;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     display: flex;
@@ -1212,10 +1197,6 @@
   color: rgb(178, 178, 178);
   text-transform: uppercase;
 }
-.subscribe .right .container input:-ms-input-placeholder {
-  color: rgb(178, 178, 178);
-  text-transform: uppercase;
-}
 .subscribe .right .container input::placeholder {
   color: rgb(178, 178, 178);
   text-transform: uppercase;
@@ -1281,10 +1262,6 @@
     font-size: 18px;
   }
   .subscribe .right .container input::-moz-placeholder {
-    color: rgb(178, 178, 178);
-    text-transform: uppercase;
-  }
-  .subscribe .right .container input:-ms-input-placeholder {
     color: rgb(178, 178, 178);
     text-transform: uppercase;
   }
@@ -1396,13 +1373,12 @@
     flex-direction: column;
     padding: 40px 20px;
     align-items: center;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
   .footer .left,
-.footer .center,
-.footer .right {
+  .footer .center,
+  .footer .right {
     width: 100%;
   }
   .footer .left {
@@ -1484,7 +1460,6 @@
 .whyChoose {
   background-color: #222222;
   color: white;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
@@ -1563,7 +1538,6 @@
   .ourServices {
     background-color: #222222;
     color: white;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
@@ -1575,7 +1549,6 @@
   display: flex;
   flex-direction: column;
   background-color: #222222;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding-top: 80px;
@@ -1708,7 +1681,6 @@
 .trainers .trainerDetail:nth-child(2n+1) .personalTrainerFont {
   position: absolute;
   top: 50%;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   transform: translateY(-50%);
@@ -1721,7 +1693,6 @@
     display: flex;
     flex-direction: column;
     background-color: #222222;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     padding: 10px;
@@ -1989,10 +1960,8 @@
   margin-left: 10px;
 }
 .quiz .questionBox {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -2097,7 +2066,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
@@ -2137,10 +2105,8 @@
     margin-left: 10px;
   }
   .quiz .questionBox {
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     display: flex;
@@ -2209,7 +2175,6 @@
     position: relative;
     -webkit-user-select: none;
        -moz-user-select: none;
-        -ms-user-select: none;
             user-select: none;
   }
   .quiz .questionBox .dropDown .dropDown-Btn {
@@ -2266,7 +2231,6 @@
 .courseContainer {
   width: 100%;
   background-color: #222222;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   color: white;
@@ -2394,7 +2358,6 @@
     padding: 10px;
     width: 100%;
     background-color: #222222;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     color: white;
@@ -2620,7 +2583,6 @@
 .faqSection {
   background-color: #222222;
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   color: white;
@@ -2704,7 +2666,6 @@
   .faqSection {
     background-color: #222222;
     width: 100%;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     color: white;
@@ -2797,7 +2758,6 @@
 .contactForm {
   background-color: #222222;
   color: white;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
@@ -2899,7 +2859,6 @@
   .contactForm {
     background-color: #222222;
     color: white;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
@@ -2953,7 +2912,7 @@
     font-size: 14px;
   }
   .contactForm .right form input,
-.contactForm .right form textarea {
+  .contactForm .right form textarea {
     width: 100%;
     border: none;
     padding: 10px;
@@ -2966,9 +2925,9 @@
     color: white;
   }
   .contactForm .right form input:-webkit-autofill,
-.contactForm .right form input:-webkit-autofill:hover,
-.contactForm .right form input:-webkit-autofill:focus,
-.contactForm .right form input:-webkit-autofill:active {
+  .contactForm .right form input:-webkit-autofill:hover,
+  .contactForm .right form input:-webkit-autofill:focus,
+  .contactForm .right form input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px #2b2c33 inset !important;
   }
   .contactForm .right form input:-webkit-autofill {
@@ -3010,7 +2969,6 @@
   background-color: #222222;
 }
 .referralPage .referralDetails {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
@@ -3086,9 +3044,6 @@
 .referralPage .referralDetails form .formField input::-moz-placeholder {
   color: gray;
 }
-.referralPage .referralDetails form .formField input:-ms-input-placeholder {
-  color: gray;
-}
 .referralPage .referralDetails form .formField input::placeholder {
   color: gray;
 }
@@ -3113,7 +3068,6 @@
 .referralPage .referralStatus {
   background-color: black;
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding: 50px 100px;
@@ -3153,9 +3107,6 @@
   outline: none;
 }
 .referralPage .referralStatus .left form .formField input::-moz-placeholder {
-  color: gray;
-}
-.referralPage .referralStatus .left form .formField input:-ms-input-placeholder {
   color: gray;
 }
 .referralPage .referralStatus .left form .formField input::placeholder {
@@ -3274,7 +3225,6 @@
 
 @media screen and (max-width: 768px) {
   .referralPage .referralDetails {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
@@ -3357,9 +3307,6 @@
   .referralPage .referralDetails form .formField input::-moz-placeholder {
     color: gray;
   }
-  .referralPage .referralDetails form .formField input:-ms-input-placeholder {
-    color: gray;
-  }
   .referralPage .referralDetails form .formField input::placeholder {
     color: gray;
   }
@@ -3375,7 +3322,6 @@
   .referralPage .referralStatus {
     background: linear-gradient(0deg, rgb(0, 0, 0) 85%, rgb(34, 34, 34) 100%);
     width: 100%;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     padding: 30px 10px;
@@ -3418,9 +3364,6 @@
     outline: none;
   }
   .referralPage .referralStatus .left form .formField input::-moz-placeholder {
-    color: gray;
-  }
-  .referralPage .referralStatus .left form .formField input:-ms-input-placeholder {
     color: gray;
   }
   .referralPage .referralStatus .left form .formField input::placeholder {
@@ -3525,7 +3468,6 @@
   }
 }
 .userDetail {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   min-height: calc(100vh - 130px);
@@ -3642,7 +3584,6 @@
 .userDetail .container .userDetailRight .userDetailCard {
   overflow: hidden;
   border-radius: 10px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   background-color: #038d9f;
@@ -3767,10 +3708,8 @@
 
 @media screen and (max-width: 768px) {
   .userDetail {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    min-height: -webkit-fit-content;
     min-height: -moz-fit-content;
     min-height: fit-content;
     width: 100%;
@@ -3864,7 +3803,6 @@
   }
   .userDetail .container .userDetailRight .userDetailCard {
     border-radius: 10px;
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     background-color: #038d9f;
@@ -3937,7 +3875,7 @@
     font-weight: 300;
   }
   .userDetail .container .userDetailRight .planDetailCard .detailBox .dates,
-.userDetail .container .userDetailRight .planDetailCard .detailBox .timeSlot {
+  .userDetail .container .userDetailRight .planDetailCard .detailBox .timeSlot {
     font-weight: 500;
   }
   .userDetail .container .userDetailRight .planDetailCard .detailBox .dateValue {
@@ -3976,7 +3914,6 @@
 }
 .scrollTop {
   position: fixed;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   bottom: 20px;
@@ -3987,8 +3924,7 @@
   width: 40px;
   z-index: 1000;
   cursor: pointer;
-  -webkit-animation: fadeIn 0.3s;
-          animation: fadeIn 0.3s;
+  animation: fadeIn 0.3s;
   transition: opacity 0.4s;
   display: none;
   color: white;
@@ -3998,15 +3934,6 @@
 
 .scrollTop:hover {
   opacity: 1;
-}
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.5;
-  }
 }
 
 @keyframes fadeIn {
@@ -4127,9 +4054,6 @@
 .adminlogin .right .loginBox form input::-moz-placeholder {
   color: white;
 }
-.adminlogin .right .loginBox form input:-ms-input-placeholder {
-  color: white;
-}
 .adminlogin .right .loginBox form input::placeholder {
   color: white;
 }
@@ -4226,6 +4150,11 @@
   justify-content: center;
   align-items: center;
 }
+.mailPopUpLayer.addFaculty .popUpBox {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 50%;
+}
 .mailPopUpLayer .popUpBox {
   background-color: white;
   padding: 20px 30px;
@@ -4266,7 +4195,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   width: 90%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -4300,8 +4228,10 @@
 .mailPopUpLayer .popUpBox form textarea.emails {
   height: 80px;
 }
-.mailPopUpLayer .popUpBox form input {
+.mailPopUpLayer .popUpBox form input,
+.mailPopUpLayer .popUpBox form select {
   width: 100%;
+  border: 2px solid red;
   padding: 8px;
   border-radius: 5px;
   font-size: 16px;
@@ -4393,7 +4323,6 @@
   font-weight: 300;
 }
 .adminMainContent .adminSide .menus .topMenus .subMenu .link {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   justify-content: center;
@@ -4446,7 +4375,6 @@
   font-weight: 300;
 }
 .adminMainContent .adminSide .menus .bottomMenus .subMenu .link {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   justify-content: center;
@@ -4573,10 +4501,6 @@
   color: white;
   opacity: 0.7;
 }
-.adminMainContent .adminBannerCreate form .formField textarea:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-}
 .adminMainContent .adminBannerCreate form .formField textarea::placeholder {
   color: white;
   opacity: 0.7;
@@ -4593,11 +4517,6 @@
   font-size: 16px;
 }
 .adminMainContent .adminBannerCreate form .formField input[type=text]::-moz-placeholder, .adminMainContent .adminBannerCreate form .formField input[type=number]::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
-.adminMainContent .adminBannerCreate form .formField input[type=text]:-ms-input-placeholder, .adminMainContent .adminBannerCreate form .formField input[type=number]:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 0;
@@ -4619,11 +4538,6 @@
   font-size: 16px;
 }
 .adminMainContent .adminBannerCreate form .formField input[type=date]::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
-.adminMainContent .adminBannerCreate form .formField input[type=date]:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 0;
@@ -4690,14 +4604,12 @@
   margin-right: 5px;
 }
 .adminMainContent .adminBannerHistory .filterContainer .filter .dropDown {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   min-width: 200px;
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .adminMainContent .adminBannerHistory .filterContainer .filter .dropDown .dropDown-Btn {
@@ -4746,12 +4658,18 @@
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
+.adminMainContent .adminBannerHistory .noData {
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
+  padding: 20px 0;
+}
 .adminMainContent .adminBannerHistory .tableDiv {
   margin-top: 20px;
+  border: 2px solid red;
   max-height: 85%;
   position: relative;
   overflow: auto;
@@ -4759,18 +4677,11 @@
 .adminMainContent .adminBannerHistory .tableDiv table {
   border-collapse: collapse;
   border-spacing: 0 10px;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   min-width: 100%;
   border: none;
   overflow-x: auto;
-}
-.adminMainContent .adminBannerHistory .tableDiv .noData {
-  text-align: center;
-  width: 100%;
-  font-size: 20px;
-  padding: 20px 0;
 }
 .adminMainContent .adminBannerHistory .tableDiv th,
 .adminMainContent .adminBannerHistory .tableDiv td {
@@ -4783,7 +4694,6 @@
   font-weight: 500;
   font-size: 18px !important;
   padding: 10px;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -4856,14 +4766,12 @@
   margin-right: 5px;
 }
 .adminMainContent .adminStudents .filterContainer .filter .dropDown {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   min-width: 200px;
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .adminMainContent .adminStudents .filterContainer .filter .dropDown .dropDown-Btn {
@@ -4909,7 +4817,6 @@
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin-left: 20px;
@@ -4923,7 +4830,6 @@
 .adminMainContent .adminStudents .tableDiv table {
   border-collapse: collapse;
   border-spacing: 0 10px;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   min-width: 100%;
@@ -4947,7 +4853,6 @@
   font-weight: 500;
   font-size: 18px !important;
   padding: 10px;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -5081,11 +4986,6 @@
   opacity: 0.7;
   font-weight: 0;
 }
-.adminMainContent .adminSettings .form .formField input[type=text]:-ms-input-placeholder, .adminMainContent .adminSettings .form .formField input[type=email]:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
 .adminMainContent .adminSettings .form .formField input[type=text]::placeholder,
 .adminMainContent .adminSettings .form .formField input[type=email]::placeholder {
   color: white;
@@ -5168,11 +5068,6 @@
   opacity: 0.7;
   font-weight: 0;
 }
-.adminMainContent .adminSettings .form2 .formField .dateBox .subFormField input:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
 .adminMainContent .adminSettings .form2 .formField .dateBox .subFormField input::placeholder {
   color: white;
   opacity: 0.7;
@@ -5217,6 +5112,35 @@
   font-size: 20px;
   margin-left: 10px;
 }
+.adminMainContent .adminSettings .topFacultyBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.adminMainContent .adminSettings .topFacultyBar h2 {
+  font-weight: 500;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+.adminMainContent .adminSettings .topFacultyBar .addFaculty {
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #038d9f;
+  color: #ffffff;
+  border: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+          clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+.adminMainContent .adminSettings .topFacultyBar .addFaculty ion-icon {
+  font-size: 20px;
+  margin-left: 10px;
+}
 .adminMainContent .adminSettings .blockTitle {
   font-weight: 300;
   font-size: 25px;
@@ -5235,7 +5159,6 @@
 .adminMainContent .adminSettings .tableDiv table {
   border-collapse: collapse;
   border-spacing: 0 10px;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   min-width: 100%;
@@ -5259,7 +5182,6 @@
   font-weight: 500;
   font-size: 18px !important;
   padding: 10px;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -5321,7 +5243,6 @@
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin-left: 20px;
@@ -5387,11 +5308,6 @@
   opacity: 0.7;
   font-weight: 0;
 }
-.adminMainContent .adminSingleQuiz .form .formField input[type=text]:-ms-input-placeholder, .adminMainContent .adminSingleQuiz .form .formField input[type=email]:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
 .adminMainContent .adminSingleQuiz .form .formField input[type=text]::placeholder,
 .adminMainContent .adminSingleQuiz .form .formField input[type=email]::placeholder {
   color: white;
@@ -5412,10 +5328,8 @@
 }
 .adminMainContent .adminSingleQuiz .questionBox {
   margin-bottom: 30px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -5551,11 +5465,6 @@
   opacity: 0.7;
   font-weight: 0;
 }
-.adminMainContent .adminGlance form .formField input[type=text]:-ms-input-placeholder, .adminMainContent .adminGlance form .formField input[type=number]:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
 .adminMainContent .adminGlance form .formField input[type=text]::placeholder,
 .adminMainContent .adminGlance form .formField input[type=number]::placeholder {
   color: white;
@@ -5573,11 +5482,6 @@
   font-size: 16px;
 }
 .adminMainContent .adminGlance form .formField input[type=date]::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
-.adminMainContent .adminGlance form .formField input[type=date]:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 0;
@@ -5687,10 +5591,6 @@
   color: white;
   opacity: 0.7;
 }
-.adminMainContent .adminBannerUpdate form .formField textarea:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-}
 .adminMainContent .adminBannerUpdate form .formField textarea::placeholder {
   color: white;
   opacity: 0.7;
@@ -5707,11 +5607,6 @@
   font-size: 16px;
 }
 .adminMainContent .adminBannerUpdate form .formField input[type=text]::-moz-placeholder, .adminMainContent .adminBannerUpdate form .formField input[type=number]::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
-.adminMainContent .adminBannerUpdate form .formField input[type=text]:-ms-input-placeholder, .adminMainContent .adminBannerUpdate form .formField input[type=number]:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 0;
@@ -5733,11 +5628,6 @@
   font-size: 16px;
 }
 .adminMainContent .adminBannerUpdate form .formField input[type=date]::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
-.adminMainContent .adminBannerUpdate form .formField input[type=date]:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 0;
@@ -5812,6 +5702,24 @@
   font-size: 20px;
   margin-left: 10px;
 }
+.adminMainContent .adminSingleCohort .topCohortBar .approveCourse {
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #038d9f;
+  color: #ffffff;
+  border: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+          clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+.adminMainContent .adminSingleCohort .topCohortBar .approveCourse ion-icon {
+  font-size: 20px;
+  margin-left: 10px;
+}
 .adminMainContent .adminSingleCohort form {
   display: flex;
   flex-direction: column;
@@ -5873,10 +5781,6 @@
   color: white;
   opacity: 0.7;
 }
-.adminMainContent .adminSingleCohort form .formField textarea:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-}
 .adminMainContent .adminSingleCohort form .formField textarea::placeholder {
   color: white;
   opacity: 0.7;
@@ -5901,11 +5805,6 @@
   opacity: 0.7;
   font-weight: 0;
 }
-.adminMainContent .adminSingleCohort form .formField input[type=text]:-ms-input-placeholder, .adminMainContent .adminSingleCohort form .formField input[type=number]:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
 .adminMainContent .adminSingleCohort form .formField input[type=text]::placeholder,
 .adminMainContent .adminSingleCohort form .formField input[type=number]::placeholder {
   color: white;
@@ -5923,11 +5822,6 @@
   font-size: 16px;
 }
 .adminMainContent .adminSingleCohort form .formField input[type=date]::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
-.adminMainContent .adminSingleCohort form .formField input[type=date]:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 0;
@@ -5989,7 +5883,6 @@
   font-weight: 500;
   font-size: 18px;
   padding: 10px;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -6075,7 +5968,6 @@
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .adminMainContent .adminUpdateSlot form .dropDown .dropDown-Btn {
@@ -6166,10 +6058,6 @@
   color: white;
   opacity: 0.7;
 }
-.adminMainContent .adminUpdateSlot form .formField textarea:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-}
 .adminMainContent .adminUpdateSlot form .formField textarea::placeholder {
   color: white;
   opacity: 0.7;
@@ -6194,11 +6082,6 @@
   opacity: 0.7;
   font-weight: 0;
 }
-.adminMainContent .adminUpdateSlot form .formField input[type=text]:-ms-input-placeholder, .adminMainContent .adminUpdateSlot form .formField input[type=number]:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
 .adminMainContent .adminUpdateSlot form .formField input[type=text]::placeholder,
 .adminMainContent .adminUpdateSlot form .formField input[type=number]::placeholder {
   color: white;
@@ -6217,11 +6100,6 @@
   font-size: 16px;
 }
 .adminMainContent .adminUpdateSlot form .formField input[type=date]::-moz-placeholder, .adminMainContent .adminUpdateSlot form .formField input[type=time]::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
-.adminMainContent .adminUpdateSlot form .formField input[type=date]:-ms-input-placeholder, .adminMainContent .adminUpdateSlot form .formField input[type=time]:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 0;
@@ -6286,7 +6164,6 @@
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .adminMainContent .adminCreateSlot form .dropDown .dropDown-Btn {
@@ -6377,10 +6254,6 @@
   color: white;
   opacity: 0.7;
 }
-.adminMainContent .adminCreateSlot form .formField textarea:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-}
 .adminMainContent .adminCreateSlot form .formField textarea::placeholder {
   color: white;
   opacity: 0.7;
@@ -6405,11 +6278,6 @@
   opacity: 0.7;
   font-weight: 0;
 }
-.adminMainContent .adminCreateSlot form .formField input[type=text]:-ms-input-placeholder, .adminMainContent .adminCreateSlot form .formField input[type=number]:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
 .adminMainContent .adminCreateSlot form .formField input[type=text]::placeholder,
 .adminMainContent .adminCreateSlot form .formField input[type=number]::placeholder {
   color: white;
@@ -6428,11 +6296,6 @@
   font-size: 16px;
 }
 .adminMainContent .adminCreateSlot form .formField input[type=date]::-moz-placeholder, .adminMainContent .adminCreateSlot form .formField input[type=time]::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
-.adminMainContent .adminCreateSlot form .formField input[type=date]:-ms-input-placeholder, .adminMainContent .adminCreateSlot form .formField input[type=time]:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 0;
@@ -6546,10 +6409,6 @@
   color: white;
   opacity: 0.7;
 }
-.adminMainContent .adminCreateCohort form .formField textarea:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-}
 .adminMainContent .adminCreateCohort form .formField textarea::placeholder {
   color: white;
   opacity: 0.7;
@@ -6574,11 +6433,6 @@
   opacity: 0.7;
   font-weight: 0;
 }
-.adminMainContent .adminCreateCohort form .formField input[type=text]:-ms-input-placeholder, .adminMainContent .adminCreateCohort form .formField input[type=number]:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
 .adminMainContent .adminCreateCohort form .formField input[type=text]::placeholder,
 .adminMainContent .adminCreateCohort form .formField input[type=number]::placeholder {
   color: white;
@@ -6596,11 +6450,6 @@
   font-size: 16px;
 }
 .adminMainContent .adminCreateCohort form .formField input[type=date]::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-  font-weight: 0;
-}
-.adminMainContent .adminCreateCohort form .formField input[type=date]:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
   font-weight: 0;
@@ -6662,7 +6511,6 @@
   font-weight: 500;
   font-size: 18px;
   padding: 10px;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -6737,8 +6585,7 @@
 }
 
 .lds-roller div {
-  -webkit-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-          animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   transform-origin: 40px 40px;
 }
 
@@ -6754,8 +6601,7 @@
 }
 
 .lds-roller div:nth-child(1) {
-  -webkit-animation-delay: -0.036s;
-          animation-delay: -0.036s;
+  animation-delay: -0.036s;
 }
 
 .lds-roller div:nth-child(1):after {
@@ -6764,8 +6610,7 @@
 }
 
 .lds-roller div:nth-child(2) {
-  -webkit-animation-delay: -0.072s;
-          animation-delay: -0.072s;
+  animation-delay: -0.072s;
 }
 
 .lds-roller div:nth-child(2):after {
@@ -6774,8 +6619,7 @@
 }
 
 .lds-roller div:nth-child(3) {
-  -webkit-animation-delay: -0.108s;
-          animation-delay: -0.108s;
+  animation-delay: -0.108s;
 }
 
 .lds-roller div:nth-child(3):after {
@@ -6784,8 +6628,7 @@
 }
 
 .lds-roller div:nth-child(4) {
-  -webkit-animation-delay: -0.144s;
-          animation-delay: -0.144s;
+  animation-delay: -0.144s;
 }
 
 .lds-roller div:nth-child(4):after {
@@ -6794,8 +6637,7 @@
 }
 
 .lds-roller div:nth-child(5) {
-  -webkit-animation-delay: -0.18s;
-          animation-delay: -0.18s;
+  animation-delay: -0.18s;
 }
 
 .lds-roller div:nth-child(5):after {
@@ -6804,8 +6646,7 @@
 }
 
 .lds-roller div:nth-child(6) {
-  -webkit-animation-delay: -0.216s;
-          animation-delay: -0.216s;
+  animation-delay: -0.216s;
 }
 
 .lds-roller div:nth-child(6):after {
@@ -6814,8 +6655,7 @@
 }
 
 .lds-roller div:nth-child(7) {
-  -webkit-animation-delay: -0.252s;
-          animation-delay: -0.252s;
+  animation-delay: -0.252s;
 }
 
 .lds-roller div:nth-child(7):after {
@@ -6824,22 +6664,12 @@
 }
 
 .lds-roller div:nth-child(8) {
-  -webkit-animation-delay: -0.288s;
-          animation-delay: -0.288s;
+  animation-delay: -0.288s;
 }
 
 .lds-roller div:nth-child(8):after {
   top: 56px;
   left: 12px;
-}
-
-@-webkit-keyframes lds-roller {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes lds-roller {
@@ -6900,7 +6730,6 @@
     flex-direction: column;
     background-color: #2b2c33;
     color: white;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     align-items: center;
@@ -7103,7 +6932,6 @@
 
 @media screen and (max-width: 768px) {
   .checkoutSuccess {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100vw;
@@ -7123,8 +6951,7 @@
     width: 100vw;
   }
   .checkoutSuccess .checkoutSuccessleft,
-.checkoutSuccess .checkoutSuccessright {
-    height: -webkit-fit-content;
+  .checkoutSuccess .checkoutSuccessright {
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;

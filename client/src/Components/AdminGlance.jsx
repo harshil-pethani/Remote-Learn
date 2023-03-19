@@ -44,7 +44,7 @@ const AdminGlance = ({ adminDetails, setAdminLogged }) => {
         } else {
             try {
                 setIsLoading(true);
-                const res = await axios.put(updateGlanceApi(detailId), ourDetails, { withCredentials: true });
+                const res = await axios.put(updateGlanceApi(detailId), { ...ourDetails, usertype: adminDetails.usertype }, { withCredentials: true });
                 if (res.status === 200) {
                     setIsLoading(false);
                     setIsError(false);
@@ -69,7 +69,7 @@ const AdminGlance = ({ adminDetails, setAdminLogged }) => {
         <div>
             <AdminTop adminDetails={adminDetails} />
             <div className="adminMainContent">
-                <AdminSide setAdminLogged={setAdminLogged} />
+                <AdminSide adminDetails={adminDetails} setAdminLogged={setAdminLogged} />
                 {
                     isLoading ?
                         <Loader adminLoader={true} /> :

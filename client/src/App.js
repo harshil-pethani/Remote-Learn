@@ -86,7 +86,6 @@ const App = () => {
     localStorage.setItem('allcourses', JSON.stringify(allCourses));
   }, [allCourses]);
 
-
   return (
     <quizContext.Provider value={{ quizCompleted, setQuizCompleted, quizAnswers, setQuizAnswers, isNewUser, setIsNewUser, setPrevPlanIndex, prevPlanIndex }}>
       <planContext.Provider value={{ allCourses, setAllCourses, userSelectedCourse, setUserSelectedCourse, userSelectedBatch, setUserSelectedBatch }}>
@@ -102,9 +101,9 @@ const App = () => {
             <Route exact path="/services/checkout-success/:planid/:batchid/:price" element={<CheckoutSuccess />} />
 
 
-            <Route exact path="/admin" element={adminLogged ? <Navigate to="/admin/offerbanner/create" /> : < AdminLogin setAdminDetails={setAdminDetails} setAdminLogged={setAdminLogged} />} />
-            <Route exact path="/admin/reset_password" element={adminLogged ? <Navigate to="/admin/sales/banner" /> : < AdminReset />} />
-            <Route exact path="/admin/offerbanner" element={adminLogged ? <Navigate to="/admin/offerbanner/create" /> : <Navigate to="/admin" />} />
+            <Route exact path="/admin" element={adminLogged ? <Navigate to="/admin/settings" /> : < AdminLogin setAdminDetails={setAdminDetails} setAdminLogged={setAdminLogged} />} />
+            <Route exact path="/admin/reset_password" element={adminLogged ? <Navigate to="/admin/settings" /> : < AdminReset />} />
+            <Route exact path="/admin/offerbanner" element={adminLogged ? <Navigate to="/admin/settings" /> : <Navigate to="/admin" />} />
             <Route exact path="/admin/offerbanner/create" element={adminLogged ? <AdminBannerCreate setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />
             <Route exact path="/admin/offerbanner/history" element={adminLogged ? <AdminHistory setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />
             <Route exact path="/admin/offerbanner/history/:id" element={adminLogged ? <AdminBannerUpdate setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />
@@ -113,6 +112,7 @@ const App = () => {
             <Route exact path="/admin/course/:id" element={adminLogged ? <AdminSingleCourse setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />
             <Route exact path="/admin/course/:id/:slot" element={adminLogged ? <AdminUpdateBatch setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />
             <Route exact path="/admin/course/:id/createslot" element={adminLogged ? <AdminCreateBatch setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />
+            <Route exact path="/admin/pendingcourses/:id" element={adminLogged ? <AdminSingleCourse setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />
             <Route exact path="/admin/quizsubmitted" element={adminLogged ? <AdminQuizSubmitted setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />
             <Route exact path="/admin/quizsubmitted/:id" element={adminLogged ? <AdminSingleQuizData setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />
             <Route exact path="/admin/students" element={adminLogged ? <AdminStudents setAdminLogged={setAdminLogged} adminDetails={adminDetails} /> : <Navigate to="/admin" />} />

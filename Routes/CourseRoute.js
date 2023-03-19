@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { courseCreate, courseDelete, courseUpdate, getAllCourses, getAllBatches, getSingleCourse, getSingleBatch, batchCreate, batchDelete, batchUpdate } from '../Controllers/CourseController.js';
+import { courseCreate, courseDelete, courseUpdate, getAllCourses, getAllBatches, getSingleCourse, getSingleBatch, batchCreate, batchDelete, batchUpdate, getAllCoursesOfFaculty, approveCourse } from '../Controllers/CourseController.js';
 const router = Router();
 import VerifyToken from "../Helper/VerifyToken.js";
 
@@ -14,6 +14,10 @@ router.put("/update/:id", VerifyToken, courseUpdate.validator, courseUpdate.cont
 router.delete("/delete/:id", VerifyToken, courseDelete.validator, courseDelete.controller);
 
 router.get("/findall", getAllCourses.controller);
+
+router.get("/findalloffaculty", VerifyToken, getAllCoursesOfFaculty.controller);
+
+router.post("/approvecourse", VerifyToken, approveCourse.controller);
 
 
 

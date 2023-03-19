@@ -1,8 +1,5 @@
 import Notify from "../Models/Notify.js";
-// import Cohort from "../Models/Cohort.js";
-// import Slot from "../Models/Slots.js";
-// import transporter from '../Helper/Transporter.js';
-// import sendSlotMail from '../Mails/SendSlotMail.js';
+
 
 export const notifyCreate = {
     validator: async (req, res, next) => {
@@ -30,18 +27,21 @@ export const notifyCreate = {
 
 export const getAllNotify = {
     controller: async (req, res) => {
-        try {
-            const findNotify = await Notify.find();
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findNotify = await Notify.find();
 
-            if (findNotify.length == 0) {
-                return res.status(400).send("Waiting Students Not Found")
+                if (findNotify.length == 0) {
+                    return res.status(400).send("Waiting Students Not Found")
+                }
+                return res.status(200).send(findNotify);
+
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Waiting Students fetching Failed");
             }
-
-            return res.status(200).send(findNotify);
-
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Waiting Students fetching Failed");
+        } else {
+            return res.status(400).send("You can't see the Waiting student details")
         }
     }
 }

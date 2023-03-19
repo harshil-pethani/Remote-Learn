@@ -33,19 +33,25 @@ export const allCustomer = {
             return res.status(200).send(findAllCustomers);
         } catch (e) {
             console.log(e);
-            return res.status(500).send("Customers Getting Failed");
+            return res.status(500).send("Student details Getting Failed");
         }
+
     }
 }
 
 export const allTransactions = {
     controller: async (req, res) => {
-        try {
-            const findAllTransactions = await Order.find();
-            return res.status(200).send(findAllTransactions);
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Transactions Getting Failed");
+        console.log(req.currUser)
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findAllTransactions = await Order.find();
+                return res.status(200).send(findAllTransactions);
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Transactions Getting Failed");
+            }
+        } else {
+            return res.status(400).send("You can't see the Transaction details")
         }
     }
 }
@@ -58,13 +64,17 @@ export const deleteCustomer = {
         next();
     },
     controller: async (req, res) => {
-        try {
-            await Customer.findByIdAndDelete(req.params.id);
+        if (req.currUser.usertype === "owner") {
+            try {
+                await Customer.findByIdAndDelete(req.params.id);
 
-            return res.status(200).send("Customer Deleted Successful");
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Customer Delete failed");
+                return res.status(200).send("student Deleted Successful");
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("student Delete failed");
+            }
+        } else {
+            return res.status(400).send("You can't delete the student details")
         }
     }
 }

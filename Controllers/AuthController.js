@@ -7,33 +7,38 @@ dotenv.config();
 
 export const register = {
     validator: async (req, res, next) => {
-        if (!req.body.email || !req.body.password || !req.body.username) {
+        if (!req.body.email || !req.body.password || !req.body.username || !req.currUser.usertype) {
             return res.status(400).send("Please Fill all the Fields");
         }
         next();
     },
     controller: async (req, res) => {
-        try {
-            const encryptedPass = CryptoJS.AES.encrypt(req.body.password, process.env.AES_SEC_KEY);
-            // console.log(encryptedPass);
-            const newAdmin = await User.create({
-                username: req.body.username.toLowerCase(),
-                email: req.body.email.toLowerCase(),
-                password: encryptedPass
-            });
+        if (req.currUser.usertype === "owner") {
+            try {
+                const encryptedPass = CryptoJS.AES.encrypt(req.body.password, process.env.AES_SEC_KEY);
+                // console.log(encryptedPass);
+                const newAdmin = await User.create({
+                    username: req.body.username.toLowerCase(),
+                    email: req.body.email.toLowerCase(),
+                    password: encryptedPass,
+                    usertype: req.body.usertype
+                });
 
-            return res.status(200).send("Registration Successful");
-        }
-        catch (e) {
-            if (e.keyValue?.username) {
-                return res.status(409).send("Username Already Exists");
+                return res.status(200).send("Registration Successful");
             }
-            else if (e.keyValue?.email) {
-                return res.status(409).send("Email Address Already Exists");
+            catch (e) {
+                if (e.keyValue?.username) {
+                    return res.status(409).send("Username Already Exists");
+                }
+                else if (e.keyValue?.email) {
+                    return res.status(409).send("Email Address Already Exists");
+                }
+                else {
+                    return res.status(500).send("Reqistration Failed Internal Server Error");
+                }
             }
-            else {
-                return res.status(500).send("Reqistration Failed Internal Server Error");
-            }
+        } else {
+            return res.status(400).send("You can't add the new faculty");
         }
     }
 }
@@ -54,10 +59,6 @@ export const login = {
 
             if (!findUser) {
                 return res.status(400).send("Invalid Credentials ");
-            }
-
-            if (findUser.verified !== "approved") {
-                return res.status(400).send("Admin not Verified");
             }
 
             const decryptedPass = CryptoJS.AES.decrypt(
@@ -295,55 +296,81 @@ export const resetPassword = {
     }
 }
 
-
-
 export const getAllAdmins = {
     controller: async (req, res) => {
-        try {
-            const findAdmins = await User.find();
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findAdmins = await User.find();
 
-            if (findAdmins.length == 0) {
-                return res.status(400).send("Users Not Found")
+                if (findAdmins.length == 0) {
+                    return res.status(400).send("Users Not Found")
+                }
+
+                const otherAdmins = findAdmins.filter((admin) => {
+                    return (
+                        admin.username !== req.currUser.username
+                    )
+                })
+
+                return res.status(200).send(otherAdmins);
+
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Users Fetching Failed");
             }
-
-            const otherAdmins = findAdmins.filter((admin) => {
-                return (
-                    admin.username !== req.currUser.username
-                )
-            })
-
-            return res.status(200).send(otherAdmins);
-
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Users Fetching Failed");
+        } else {
+            return res.status(400).send("You can't see the faculty list");
         }
     }
 }
 
 
-export const updateAdminStatus = {
+// export const updateAdminStatus = {
+//     validator: async (req, res, next) => {
+//         if (!req.body.status) {
+//             return res.status(400).send("Please Select Status");
+//         } else if (!req.params.id) {
+//             return res.status(400).send("Invalid admin");
+//         }
+//         next();
+//     },
+//     controller: async (req, res) => {
+//         try {
+//             const updateData = await User.findByIdAndUpdate(req.params.id, {
+//                 verified: req.body.status
+//             }, { new: true })
+
+//             const { password, ...others } = updateData._doc;
+
+//             return res.status(200).send(others);
+//         }
+//         catch (e) {
+//             console.log(e);
+//             return res.status(500).send("Admin Status Update Failed");
+//         }
+//     }
+// }
+
+export const deleteAdmin = {
     validator: async (req, res, next) => {
-        if (!req.body.status) {
-            return res.status(400).send("Please Select Status");
-        } else if (!req.params.id) {
+        if (!req.params.id) {
             return res.status(400).send("Invalid admin");
         }
         next();
     },
     controller: async (req, res) => {
-        try {
-            const updateData = await User.findByIdAndUpdate(req.params.id, {
-                verified: req.body.status
-            }, { new: true })
+        if (req.currUser.usertype === "owner") {
+            try {
+                await User.findByIdAndDelete(req.params.id)
 
-            const { password, ...others } = updateData._doc;
-
-            return res.status(200).send(others);
-        }
-        catch (e) {
-            console.log(e);
-            return res.status(500).send("Admin Status Update Failed");
+                return res.status(200).send("Faculty Deletion Successful");
+            }
+            catch (e) {
+                console.log(e);
+                return res.status(500).send("Faculty Deletion Failed");
+            }
+        } else {
+            return res.status(400).send("You can't delete the faculty");
         }
     }
 }

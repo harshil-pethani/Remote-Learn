@@ -60,7 +60,7 @@ const AdminWaiting = ({ adminDetails, setAdminLogged }) => {
                 }
             } catch (e) {
                 setIsLoading(false);
-                console.log(e);
+                // console.log(e);
             }
         }
         getNotifies();
@@ -81,8 +81,6 @@ const AdminWaiting = ({ adminDetails, setAdminLogged }) => {
         })
     }
 
-    // console.log(waitingData);
-
     useEffect(() => {
         setFilteredStudents(
             waitingData.filter((student) =>
@@ -102,7 +100,7 @@ const AdminWaiting = ({ adminDetails, setAdminLogged }) => {
         <div>
             <AdminTop adminDetails={adminDetails} />
             <div className="adminMainContent">
-                <AdminSide setAdminLogged={setAdminLogged} />
+                <AdminSide adminDetails={adminDetails} setAdminLogged={setAdminLogged} />
                 {
                     isLoading ?
                         <Loader adminLoader={true} /> :

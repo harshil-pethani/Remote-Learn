@@ -9,24 +9,28 @@ export const glanceCreate = {
         next();
     },
     controller: async (req, res) => {
-        try {
-            const findDetail = await Glance.find();
+        if (req.currUser.usertype === "owner") {
+            try {
+                const findDetail = await Glance.find();
 
-            for (let i = 0; i < findDetail.length; i++) {
-                await Glance.findByIdAndDelete(findDetail[i]._id)
+                for (let i = 0; i < findDetail.length; i++) {
+                    await Glance.findByIdAndDelete(findDetail[i]._id)
+                }
+
+                const createDetail = await Glance.create({
+                    teachers: req.body.teachers,
+                    trainedstudents: req.body.trainedstudents,
+                    placedstudents: req.body.placedstudents,
+                })
+
+                console.log(createDetail);
+                return res.status(201).send("Glance Created");
+            } catch (e) {
+                console.log(e);
+                return res.status(500).send("Glance Creation Failed");
             }
-
-            const createDetail = await Glance.create({
-                teachers: req.body.teachers,
-                trainedstudents: req.body.trainedstudents,
-                placedstudents: req.body.placedstudents,
-            })
-
-            console.log(createDetail);
-            return res.status(201).send("Glance Created");
-        } catch (e) {
-            console.log(e);
-            return res.status(500).send("Glance Creation Failed");
+        } else {
+            return res.status(400).send("You can't create the Glance details")
         }
     }
 }
@@ -41,25 +45,29 @@ export const glanceUpdate = {
         next();
     },
     controller: async (req, res) => {
-        try {
-            const updateDetail = await Glance.findByIdAndUpdate(req.params.id, {
-                teachers: req.body.teachers,
-                trainedstudents: req.body.trainedstudents,
-                placedstudents: req.body.placedstudents,
-            })
 
-            // console.log(updateDetail);
-            return res.status(200).send("Glance Updated");
-        } catch (e) {
-            // console.log(e);
-            return res.status(500).send("Glance Updation Failed");
+        if (req.currUser.usertype === "owner") {
+            try {
+                const updateDetail = await Glance.findByIdAndUpdate(req.params.id, {
+                    teachers: req.body.teachers,
+                    trainedstudents: req.body.trainedstudents,
+                    placedstudents: req.body.placedstudents,
+                })
+
+                // console.log(updateDetail);
+                return res.status(200).send("Glance Updated");
+            } catch (e) {
+                // console.log(e);
+                return res.status(500).send("Glance Updation Failed");
+            }
+        } else {
+            return res.status(400).send("You can't update the Glance details")
         }
     }
 }
 
 export const glanceGet = async (req, res) => {
     try {
-
         const getDetail = await Glance.findOne();
 
         return res.status(200).send(getDetail);

@@ -97,7 +97,7 @@ const AdminStudents = ({ adminDetails, setAdminLogged }) => {
         setBatchSelects(["All Batches", ...courseBatches]);
     }, [customerData]);
 
-    const deleteCustomer = async (custid) => {
+    const deleteStudent = async (custid) => {
         if (window.confirm("Are you sure you want to remove this customer?")) {
             try {
                 setIsLoading(true);
@@ -241,7 +241,7 @@ const AdminStudents = ({ adminDetails, setAdminLogged }) => {
             }
             <AdminTop adminDetails={adminDetails} />
             <div className="adminMainContent">
-                <AdminSide setAdminLogged={setAdminLogged} />
+                <AdminSide adminDetails={adminDetails} setAdminLogged={setAdminLogged} />
                 {
                     isLoading ?
                         <Loader adminLoader={true} /> :
@@ -305,9 +305,12 @@ const AdminStudents = ({ adminDetails, setAdminLogged }) => {
                                     </div>
                                 }
                                 <div className="btns">
-                                    <button className="exportBtn" onClick={() => setSendMailPopupActive(true)}>
-                                        Send Email
-                                    </button>
+                                    {
+                                        customerData.length > 0 &&
+                                        <button className="exportBtn" onClick={() => setSendMailPopupActive(true)}>
+                                            Send Email
+                                        </button>
+                                    }
                                     {
                                         filteredCustomer.length > 0 &&
                                         <ExportJsonCsv className="exportBtn" headers={headers} items={csvData}>Export</ExportJsonCsv>
@@ -345,7 +348,7 @@ const AdminStudents = ({ adminDetails, setAdminLogged }) => {
                                                                 {customer.batch}
                                                             </td>
                                                             <td className="end">
-                                                                <button onClick={() => deleteCustomer(customer._id)}>
+                                                                <button onClick={() => deleteStudent(customer._id)}>
                                                                     <img src={deleteBtn} alt="" />
                                                                 </button>
                                                             </td>
@@ -356,7 +359,7 @@ const AdminStudents = ({ adminDetails, setAdminLogged }) => {
                                         </table>
                                         :
                                         <p className="noData">
-                                            No Customer Data Available
+                                            No Student Data Available
                                         </p>
                                 }
                             </div>

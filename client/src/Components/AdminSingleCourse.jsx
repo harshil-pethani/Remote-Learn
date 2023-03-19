@@ -6,7 +6,7 @@ import AdminTop from './AdminTop'
 import editBtn from "../Assets/editBtn.png";
 import deleteBtn from "../Assets/deleteBtn.png";
 import axios from 'axios'
-import { deleteCourseApi, deleteBatchApi, getSingleCourseApi, updateCourseApi } from '../Config/Api'
+import { deleteCourseApi, deleteBatchApi, getSingleCourseApi, updateCourseApi, approveCourseApi } from '../Config/Api'
 import Loader from './Loader'
 
 const AdminSingleCourse = ({ adminDetails, setAdminLogged }) => {
@@ -24,6 +24,7 @@ const AdminSingleCourse = ({ adminDetails, setAdminLogged }) => {
 
     useEffect(() => {
         setCourseId(location.pathname.split("/")[3])
+        console.log(courseId)
     }, [location]);
 
     useEffect(() => {
@@ -165,11 +166,37 @@ const AdminSingleCourse = ({ adminDetails, setAdminLogged }) => {
         }
     }
 
+    const approveCourse = async () => {
+        if (window.confirm("Are you sure you want to Approve this Course?")) {
+            try {
+                setIsLoading(true);
+                const res = await axios.post(approveCourseApi, curCourse, { withCredentials: true })
+                if (res.status === 200) {
+                    setIsLoading(false);
+                    setIsError(false);
+                    setRenderPage(renderPage + 1);
+                    navigate("/admin/course")
+                }
+            } catch (e) {
+                setIsLoading(false);
+                setIsError(true);
+                if (e.response.status === 400) {
+                    setResMsg(e.response.data);
+                } else if (e.response.status === 500) {
+                    setResMsg(e.response.data);
+                } else {
+                    setResMsg("Sorry, Something went wrong - Please try after some time.");
+                }
+                console.log(e);
+            }
+        }
+    }
+
     return (
         <div>
             <AdminTop adminDetails={adminDetails} />
             <div className="adminMainContent">
-                <AdminSide renderPage={renderPage} setAdminLogged={setAdminLogged} />
+                <AdminSide adminDetails={adminDetails} renderPage={renderPage} setAdminLogged={setAdminLogged} />
                 {
                     isLoading ?
                         <Loader adminLoader={true} /> :
@@ -178,10 +205,30 @@ const AdminSingleCourse = ({ adminDetails, setAdminLogged }) => {
                                 <h2 className="title">
                                     {curCourse?.title}
                                 </h2>
-                                <button onClick={deleteCohort} className="deleteCohort">
-                                    Delete <ion-icon name="arrow-forward"></ion-icon>
-                                </button>
+                                {
+                                    adminDetails.usertype === "owner" && curCourse.status !== "pending" &&
+                                    <button onClick={deleteCohort} className="deleteCohort">
+                                        Delete <ion-icon name="arrow-forward"></ion-icon>
+                                    </button>
+                                }
+                                {
+                                    adminDetails.usertype === "owner" && curCourse.status === "pending" &&
+                                    <div style={{ display: "flex", gap: "20px" }}>
+                                        <button onClick={() => approveCourse("approved")} className="approveCourse">
+                                            Approve <ion-icon name="arrow-forward"></ion-icon>
+                                        </button>
+                                        <button onClick={deleteCohort} className="deleteCohort">
+                                            Reject <ion-icon name="arrow-forward"></ion-icon>
+                                        </button>
+                                    </div>
+                                }
                             </div>
+                            {
+                                curCourse.status === "pending" &&
+                                <p style={{ color: "red" }}>
+                                    Currently this course is not approved.
+                                </p>
+                            }
                             <form>
                                 <div className="formField">
                                     <label className="fieldTitle" htmlFor="courseName">
@@ -218,10 +265,14 @@ const AdminSingleCourse = ({ adminDetails, setAdminLogged }) => {
                                     </div>
                                 </div>
                                 <div className="formField">
-                                    <label className="fieldTitle" htmlFor="coursePrice">
-                                        Course Price (In INR)<span>*</span>
-                                    </label>
-                                    <input onChange={(e) => setCurCourse({ ...curCourse, price: e.target.value })} value={curCourse?.price} id="coursePrice" type="number" placeholder="Amount" />
+                                    <div className="dateBox">
+                                        <div className="subFormField">
+                                            <label className="fieldTitle" htmlFor="coursePrice">
+                                                Course Price (In INR)<span>*</span>
+                                            </label>
+                                            <input onChange={(e) => setCurCourse({ ...curCourse, price: e.target.value })} value={curCourse?.price} id="coursePrice" type="number" placeholder="Amount" />
+                                        </div>
+                                    </div>
                                 </div>
                                 <p className={isError ? "resMsg error" : "resMsg"}>
                                     {resMsg}
@@ -230,66 +281,76 @@ const AdminSingleCourse = ({ adminDetails, setAdminLogged }) => {
                                     Update <ion-icon name="arrow-forward"></ion-icon>
                                 </button>
                             </form>
-
-                            <div className="tableDiv" style={{ overflow: "auto" }}>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Batch Name</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                            <th>Start Time</th>
-                                            <th>End Time</th>
-                                            <th>Status</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            curBatches?.map((batch, index) => (
-                                                <tr key={index}>
-                                                    <td>
-                                                        {batch.name}
-                                                    </td>
-                                                    <td>
-                                                        {getDate(batch?.startdate)}
-                                                    </td>
-                                                    <td>
-                                                        {getDate(batch?.enddate)}
-                                                    </td>
-                                                    <td>
-                                                        {batch?.starttime}
-                                                    </td>
-                                                    <td>
-                                                        {batch?.endtime}
-                                                    </td>
-                                                    <td className={"status " + batch?.batchstatus}>
-                                                        {batch?.batchstatus}
-                                                    </td>
-                                                    <td className="edit">
-                                                        <button onClick={() => navigate(`/admin/course/${courseId}/${batch._id}`)}>
-                                                            <img src={editBtn} alt="" />
-                                                        </button>
-                                                    </td>
-                                                    <td className="end">
-                                                        <button onClick={() => deleteSlot(batch._id)}>
-                                                            <img src={deleteBtn} alt="" />
-                                                        </button>
-                                                    </td>
+                            <h1 style={{ fontWeight: "400", marginTop: "50px" }}>
+                                Batch Details
+                            </h1>
+                            {
+                                curBatches.length > 0 ?
+                                    <div className="tableDiv" style={{ overflow: "auto" }}>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Batch Name</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+                                                    <th>Start Time</th>
+                                                    <th>End Time</th>
+                                                    <th>Status</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
                                                 </tr>
-                                            ))
-                                        }
-                                    </tbody>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                    curBatches?.map((batch, index) => (
+                                                        <tr key={index}>
+                                                            <td>
+                                                                {batch.name}
+                                                            </td>
+                                                            <td>
+                                                                {getDate(batch?.startdate)}
+                                                            </td>
+                                                            <td>
+                                                                {getDate(batch?.enddate)}
+                                                            </td>
+                                                            <td>
+                                                                {batch?.starttime}
+                                                            </td>
+                                                            <td>
+                                                                {batch?.endtime}
+                                                            </td>
+                                                            <td className={"status " + batch?.batchstatus}>
+                                                                {batch?.batchstatus}
+                                                            </td>
+                                                            <td className="edit">
+                                                                <button onClick={() => navigate(`/admin/course/${courseId}/${batch._id}`)}>
+                                                                    <img src={editBtn} alt="" />
+                                                                </button>
+                                                            </td>
+                                                            <td className="end">
+                                                                <button onClick={() => deleteSlot(batch._id)}>
+                                                                    <img src={deleteBtn} alt="" />
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    ))
+                                                }
+                                            </tbody>
 
-                                </table>
-                            </div>
-
-                            <div className="bottomCohortBar">
-                                <button onClick={() => navigate(`/admin/course/${courseId}/createslot`)} className="addSlot">
-                                    Add Batch <ion-icon name="arrow-forward"></ion-icon>
-                                </button>
-                            </div>
+                                        </table>
+                                    </div> :
+                                    <h2 style={{ fontWeight: "400", marginTop: "50px", textAlign: "center" }}>
+                                        Currently, Zero batches available in this course
+                                    </h2>
+                            }
+                            {
+                                curCourse.status === "approved" &&
+                                <div className="bottomCohortBar">
+                                    <button onClick={() => navigate(`/admin/course/${courseId}/createslot`)} className="addSlot">
+                                        Add Batch <ion-icon name="arrow-forward"></ion-icon>
+                                    </button>
+                                </div>
+                            }
                         </div>
                 }
             </div>

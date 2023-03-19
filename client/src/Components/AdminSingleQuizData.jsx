@@ -158,7 +158,7 @@ const AdminSingleQuizData = ({ adminDetails, setAdminLogged }) => {
             <AdminTop adminDetails={adminDetails} />
             <div className="adminMainContent">
 
-                <AdminSide setAdminLogged={setAdminLogged} />
+                <AdminSide adminDetails={adminDetails} setAdminLogged={setAdminLogged} />
                 {
                     isLoading ?
                         <Loader adminLoader={true} /> :

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import deleteBtn from "../Assets/deleteBtn.png";
-import { deleteCustomerApi, deleteSingleQuizApi, getQuizListApi } from '../Config/Api';
+import { deleteSingleQuizApi, getQuizListApi } from '../Config/Api';
 import AdminSide from './AdminSide'
 import AdminTop from './AdminTop'
 import Loader from './Loader';
@@ -49,13 +49,11 @@ const QuizSubmitted = ({ adminDetails, setAdminLogged }) => {
     }, [renderPage]);
 
 
-    // console.log(quizListData);
-
     return (
         <div>
             <AdminTop adminDetails={adminDetails} />
             <div className="adminMainContent">
-                <AdminSide setAdminLogged={setAdminLogged} />
+                <AdminSide adminDetails={adminDetails} setAdminLogged={setAdminLogged} />
                 {
                     isLoading ?
                         <Loader adminLoader={true} /> :
@@ -103,30 +101,11 @@ const QuizSubmitted = ({ adminDetails, setAdminLogged }) => {
                                                         </tr>
                                                     ))
                                                 }
-                                                {/* <tr>
-                                                    <td className="bannerText">
-                                                        Harshil
-                                                    </td>
-                                                    <td>
-                                                        harshilpethani8990@gmail.com
-                                                    </td>
-                                                    <td>
-                                                        Graphic Designing
-                                                    </td>
-                                                    <td>
-                                                        January 2023 Batch
-                                                    </td>
-                                                    <td className="end">
-                                                        <button onClick={() => deleteCustomer(1)}>
-                                                            <img src={deleteBtn} alt="" />
-                                                        </button>
-                                                    </td>
-                                                </tr> */}
                                             </tbody>
                                         </table>
                                         :
                                         <p className="noData">
-                                            No Customer Data Available
+                                            No Student Data Available
                                         </p>
                                 }
                             </div>

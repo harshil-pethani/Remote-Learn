@@ -1,5 +1,5 @@
-// const domain = "http://localhost:5000";
-const domain = "";
+const domain = "http://localhost:5000";
+// const domain = "";
 
 // Auth API
 export const registerApi = `${domain}/api/auth/register`;
@@ -17,6 +17,7 @@ export const updatepasswordApi = `${domain}/api/auth/updatepassword`;
 // Manage Admin API
 export const getAllAdminApi = `${domain}/api/auth/alladmin`;
 export const updateAdminStatus = (id) => `${domain}/api/auth/adminstatus/${id}`;
+export const deleteFacultyApi = (id) => `${domain}/api/auth/deleteadmin/${id}`;
 
 // Quiz API
 export const quizSubmitApi = `${domain}/api/quiz/create`;
@@ -35,8 +36,10 @@ export const fetchActiveBannerApi = `${domain}/api/banner/findactive`;
 // Course API
 export const createCourseApi = `${domain}/api/course/create`;
 export const getAllCoursesApi = `${domain}/api/course/findall`;
+export const getAllCoursesOfFacultyApi = `${domain}/api/course/findalloffaculty`;
 export const getSingleCourseApi = (id) => `${domain}/api/course/find/${id}`;
 export const updateCourseApi = (id) => `${domain}/api/course/update/${id}`;
+export const approveCourseApi = `${domain}/api/course/approvecourse`;
 export const deleteCourseApi = (id) => `${domain}/api/course/delete/${id}`;
 // export const getAllSlotApi = `${domain}/api/course/findallslots`;
 

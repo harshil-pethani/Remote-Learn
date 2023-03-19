@@ -28,6 +28,14 @@ const CourseSchema = new Mongoose.Schema(
         },
         batches: {
             type: Array
+        },
+        status: {
+            type: String,
+            required: true
+        },
+        faculty: {
+            type: String,
+            required: true
         }
     }, { timestamps: true }
 )
