@@ -1,5 +1,5 @@
-const domain = "http://localhost:5000";
-// const domain = "";
+// const domain = "http://localhost:5000";
+const domain = "";
 
 // Auth API
 export const registerApi = `${domain}/api/auth/register`;
