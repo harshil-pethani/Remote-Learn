@@ -67,3 +67,4 @@ app.listen(port, () => {
 
 
 
+// stripe listen --forward-to localhost:5000/api/checkout/webhook
