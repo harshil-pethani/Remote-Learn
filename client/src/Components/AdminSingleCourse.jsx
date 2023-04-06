@@ -252,13 +252,13 @@ const AdminSingleCourse = ({ adminDetails, setAdminLogged }) => {
                                     <div className="dateBox">
                                         <div className="subFormField">
                                             <label className="fieldTitle" htmlFor="courseDuration">
-                                                Course Duration<span>*</span>
+                                                Course Duration (In Months)<span>*</span>
                                             </label>
                                             <input onChange={(e) => setCurCourse({ ...curCourse, courseduration: e.target.value })} value={curCourse?.courseduration} id="courseDuration" type="number" placeholder="Number of Months" />
                                         </div>
                                         <div className="subFormField">
                                             <label className="fieldTitle" htmlFor="dailyTime">
-                                                Daily Time<span>*</span>
+                                                Daily Time (In Hours)<span>*</span>
                                             </label>
                                             <input onChange={(e) => setCurCourse({ ...curCourse, dailytime: e.target.value })} value={curCourse?.dailytime} id="dailyTime" type="number" placeholder="Number of Hours" />
                                         </div>

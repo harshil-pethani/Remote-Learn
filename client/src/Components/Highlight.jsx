@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { getGlanceApi } from '../Config/Api';
 
 const Highlight = () => {
-    const [ourDetails, setOurDetails] = useState({ teachers: "", trainedstudents: "", placedstudents: "" });
+    const [ourDetails, setOurDetails] = useState({ teachers: "", trainedstudents: "", runningcourses: "" });
 
     useEffect(() => {
         const getGlance = async () => {
@@ -12,8 +12,8 @@ const Highlight = () => {
                 if (res.status === 200) {
                     setOurDetails({
                         teachers: res.data.teachers,
-                        trainedstudents: res.data.trainedstudents,
-                        placedstudents: res.data.placedstudents
+                        trainedstudents: res.data.students,
+                        runningcourses: res.data.courses
                     });
                 }
             } catch (e) {
@@ -32,7 +32,7 @@ const Highlight = () => {
                 <div className="details">
                     <div className="detailItem">
                         <h2>
-                            {ourDetails.teachers}+
+                            {ourDetails.teachers || 20}+
                         </h2>
                         <h3>
                             CERTIFIED
@@ -41,7 +41,7 @@ const Highlight = () => {
                     </div>
                     <div className="detailItem">
                         <h2>
-                            {ourDetails.trainedstudents}+
+                            {ourDetails.trainedstudents || 345}+
                         </h2>
                         <h3>
                             Students
@@ -50,11 +50,11 @@ const Highlight = () => {
                     </div>
                     <div className="detailItem">
                         <h2>
-                            {ourDetails.placedstudents}+
+                            {ourDetails.runningcourses || 228}+
                         </h2>
                         <h3>
-                            STUDENTS
-                            PLACED
+                            RUNNING
+                            COURSES
                         </h3>
                     </div>
                 </div>

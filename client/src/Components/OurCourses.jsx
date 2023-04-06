@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import uiux from "../Assets/uiux.png";
 import frontend from "../Assets/frontend.png";
@@ -7,8 +7,11 @@ import android from "../Assets/android.png";
 import ios from "../Assets/ios.png";
 import fullstack from "../Assets/fullstack.png";
 import ourcourseswatermark from "../Assets/ourcourseswatermark.png"
+import { planContext } from '../App';
 
 const OurCourses = () => {
+    const { allCourses } = useContext(planContext);
+
     return (
         <div className="ourCourses">
             <h2 className="title">
@@ -18,42 +21,25 @@ const OurCourses = () => {
                 <img loading="lazy" src={ourcourseswatermark} alt="" />
             </div>
             <div className="cardContainer">
-                <div className="card">
-                    <img src={uiux} alt="courseImg" />
-                    <p className="courseTitle">
-                        Graphic Designing
-                    </p>
-                </div>
-                <div className="card">
-                    <img src={frontend} alt="courseImg" />
-                    <p className="courseTitle">
-                        Frontend Designing
-                    </p>
-                </div>
-                <div className="card">
-                    <img src={php} alt="courseImg" />
-                    <p className="courseTitle">
-                        Php with Laravel
-                    </p>
-                </div>
-                <div className="card">
-                    <img src={android} alt="courseImg" />
-                    <p className="courseTitle">
-                        Android Development
-                    </p>
-                </div>
-                <div className="card">
-                    <img src={ios} alt="courseImg" />
-                    <p className="courseTitle">
-                        IOS Development
-                    </p>
-                </div>
-                <div className="card">
-                    <img src={fullstack} alt="courseImg" />
-                    <p className="courseTitle">
-                        Full Stack Development
-                    </p>
-                </div>
+                {
+                    allCourses.map((course, i) => {
+                        return (
+                            <div key={i} className="card">
+                                <img src={
+                                    course.title.toLowerCase().includes("graphic") ? uiux :
+                                        course.title.toLowerCase().includes("frontend") ? frontend :
+                                            course.title.toLowerCase().includes("php") ? php :
+                                                course.title.toLowerCase().includes("android") ? android :
+                                                    course.title.toLowerCase().includes("ios") ? ios :
+                                                        course.title.toLowerCase().includes("full stack") ? fullstack : fullstack
+                                } alt="courseImg" />
+                                <p className="courseTitle">
+                                    {course.title}
+                                </p>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )

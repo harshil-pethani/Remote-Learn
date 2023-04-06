@@ -21,7 +21,7 @@
     // left: 0;
     background-color: rgb(23, 23, 23);
   }
-  
+
   &.scrolled {
     background-color: rgb(23, 23, 23);
   }
@@ -137,7 +137,7 @@
       padding: 20px 0;
 
       img {
-        height: 70px;
+        height: 100px;
       }
     }
     .bottomNavbar {
@@ -151,13 +151,13 @@
         text-decoration: none;
         cursor: pointer;
         &.joinNow {
-          //   padding: 11px 43px;
+          padding: 13px 33px;
           clip-path: polygon(0% 0%, 100% 0%, 85.5% 100%, 0% 100%);
           background: $white;
           color: $orange;
         }
         &.freeClass {
-          padding: 15px 35px;
+          padding: 13px 30px;
           clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
           margin-left: -23.5px;
           background: $orange;
@@ -174,6 +174,7 @@
           clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
           // margin-top: 10px;
           margin-left: 0;
+          // border: 2px solid red;
         }
       }
     }

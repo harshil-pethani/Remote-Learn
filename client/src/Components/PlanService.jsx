@@ -20,6 +20,19 @@ const PlanService = (props) => {
 
     const [curImg, setCurImg] = useState("");
 
+    function tConvert(time) {
+        time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+        if (time.length > 1) { // If time format correct
+            time = time.slice(1);  // Remove full string match value
+            time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+            time[0] = +time[0] % 12 || 12; // Adjust hours
+        }
+        return time.join(''); // return adjusted time or original string
+    }
+
+    tConvert('18:00:00');
+
     useEffect(() => {
         const findCourse = async () => {
             try {
@@ -62,10 +75,10 @@ const PlanService = (props) => {
             </div>
             <div className="courseHighlight">
                 <div className="subHighlight">
-                    Course Duration : {curCourse.courseduration}
+                    Course Duration : {curCourse.courseduration} Months
                 </div>
                 <div className="subHighlight">
-                    Daily Time : {curCourse.dailytime}
+                    Daily Time : {curCourse.dailytime} Hours
                 </div>
             </div>
             <div className="courseContent">
@@ -124,6 +137,10 @@ const PlanService = (props) => {
                             <div className="singleBatch" key={index}>
                                 <p>
                                     {batch.name}
+                                    <br />
+                                    {batch.startdate} to {batch.enddate}
+                                    <br />
+                                    ({tConvert(batch.starttime)} to {tConvert(batch.endtime)})
                                 </p>
                                 <button onClick={() => {
                                     if (batch.batchstatus === "Notify Me") {

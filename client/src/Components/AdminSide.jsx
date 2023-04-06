@@ -112,6 +112,7 @@ const AdminSide = ({ adminDetails, renderPage, setAdminLogged }) => {
                     }
                     <div className="subMenu">
                         <Link to={`/admin/students`} className={activeMenu === "students" ? "link menuActive" : "link"} >
+                            {/* <Link to={`/admin/`} className={activeMenu === "students" ? "link menuActive" : "link"} > */}
                             <ion-icon name="school-outline"></ion-icon>
                             Enrolled Students
                         </Link>
@@ -120,6 +121,7 @@ const AdminSide = ({ adminDetails, renderPage, setAdminLogged }) => {
                         adminDetails.usertype === "owner" &&
                         <div className="subMenu">
                             <Link to={`/admin/waiting`} className={activeMenu === "waiting" ? "link menuActive" : "link"} >
+                                {/* <Link to={`/admin/`} className={activeMenu === "waiting" ? "link menuActive" : "link"} > */}
                                 <ion-icon name="people-outline"></ion-icon>
                                 Waiting Students
                             </Link>
@@ -138,22 +140,21 @@ const AdminSide = ({ adminDetails, renderPage, setAdminLogged }) => {
                         adminDetails.usertype === "owner" &&
                         <div className="subMenu">
                             <Link to={`/admin/transactions`} className={activeMenu === "transactions" ? "link menuActive" : "link"} >
-                                {/* <ion-icon name="card-outline"></ion-icon> */}
+                                {/* <Link to={`/admin/`} className={activeMenu === "transactions" ? "link menuActive" : "link"} > */}
                                 <ion-icon name="ticket-outline"></ion-icon>
                                 Transactions
                             </Link>
                         </div>
                     }
-                    {
+                    {/* {
                         adminDetails.usertype === "owner" &&
                         <div className="subMenu">
                             <Link to={`/admin/at-a-glance`} className={activeMenu === "at-a-glance" ? "link menuActive" : "link"} >
-                                {/* <ion-icon name="information-circle-outline"></ion-icon> */}
                                 <ion-icon name="analytics-outline"></ion-icon>
                                 At a Glance
                             </Link>
                         </div>
-                    }
+                    } */}
                 </div>
 
 

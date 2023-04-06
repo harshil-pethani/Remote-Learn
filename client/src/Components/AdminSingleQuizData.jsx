@@ -117,7 +117,7 @@ const AdminSingleQuizData = ({ adminDetails, setAdminLogged }) => {
                                         <input value={mailTitle} id="mailTitle" onChange={(e) => setMailTitle(e.target.value)} type="text" />
 
                                         <label htmlFor="mailSubject">
-                                            Mail Title<span>*</span>
+                                            Mail Subject<span>*</span>
                                         </label>
                                         <input value={mailSubject} id="mailSubject" onChange={(e) => setMailSubject(e.target.value)} type="text" />
 

@@ -347,8 +347,8 @@
           gap: 10px;
 
           img {
-            height: 120px;
-            width: 120px;
+            height: 80px;
+            width: 80px;
           }
 
           .detailDesc {
@@ -369,8 +369,8 @@
 
         label {
           font-size: 20px;
-          font-weight: 500;
-          margin-bottom: 20px;
+          font-weight: 400;
+          margin-bottom: 10px;
           text-align: center;
         }
 
@@ -385,8 +385,8 @@
             width: 80%;
             border: none;
             background-color: $input;
-            padding: 20px 10px;
-            font-size: 20px;
+            padding: 15px 10px;
+            font-size: 16px;
             color: white;
             outline: none;
 
@@ -397,7 +397,7 @@
           button {
             width: 20%;
             border: none;
-            font-size: 20px;
+            font-size: 16px;
             background-color: $orange;
             color: white;
             cursor: pointer;
@@ -416,7 +416,7 @@
       width: 100%;
       height: fit-content;
       padding: 30px 10px;
-      padding-top: 60px;
+      padding-top: 0px;
       display: flex;
       flex-direction: column;
       color: white;
@@ -435,7 +435,7 @@
 
           label {
             font-size: 20px;
-            font-weight: 500;
+            font-weight: 400;
             text-align: center;
             margin-bottom: 20px;
           }
@@ -451,7 +451,7 @@
               width: 80%;
               border: none;
               background-color: $input;
-              padding: 20px 10px;
+              padding: 15px 10px;
               font-size: 16px;
               color: white;
               outline: none;

@@ -493,7 +493,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
@@ -607,7 +607,7 @@
     .tableDiv {
       margin-top: 20px;
       // margin-bottom: 100px;
-      border: 2px solid red;
+      // border: 2px solid red;
       max-height: 85%;
       position: relative;
       overflow: auto;
@@ -792,6 +792,10 @@
       max-height: 85%;
       position: relative;
       overflow: auto;
+
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
       table {
         border-collapse: collapse;
         border-spacing: 0 10px;
@@ -1014,7 +1018,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
@@ -1114,7 +1118,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
@@ -1577,7 +1581,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
@@ -1732,7 +1736,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
@@ -1940,7 +1944,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
@@ -2049,7 +2053,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
@@ -2256,7 +2260,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
@@ -2465,7 +2469,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
@@ -2630,7 +2634,7 @@
         background: $orange;
         color: $white;
         border: none;
-        padding: 13px 40px;
+        padding: 10px 30px;
         font-size: 16px;
         cursor: pointer;
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);

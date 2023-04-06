@@ -343,8 +343,9 @@
         // border: 2px solid red;
 
         .userDetailTitle {
-          font-size: 30px;
+          font-size: 26px;
           text-align: center;
+          font-weight: 400;
         }
 
         form {
@@ -356,14 +357,14 @@
 
           label {
             // border: 2px solid red;
-            margin-left: 10px;
+            margin-left: 0;
           }
 
           .formField {
             // border: 2px solid red;
             border: 1px solid white;
-            margin-top: 10px;
-            margin-bottom: 30px;
+            margin-top: 5px;
+            margin-bottom: 15px;
             background-color: $drop;
             display: flex;
             align-items: center;

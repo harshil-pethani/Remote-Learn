@@ -6,7 +6,6 @@ import ceowatermark from "../Assets/ceowatermark.png";
 import cmowatermark from "../Assets/cmowatermark.png";
 
 const Trainers = () => {
-
     return (
         <div className="trainers">
             <h2 className="title">

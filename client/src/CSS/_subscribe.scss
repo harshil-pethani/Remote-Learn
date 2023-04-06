@@ -84,8 +84,8 @@
       width: 100%;
       // border: 2px solid red;
       p {
-        font-size: 20px;
-        font-weight: 500;
+        font-size: 18px;
+        font-weight: 400;
         text-align: center;
         // border: 2px solid red;
         width: 100%;
@@ -102,20 +102,20 @@
         border: 1px solid white;
         display: flex;
         align-items: center;
-        height: 62px;
+        height: 50px;
 
-        img {
-          height: 60px;
-          width: 60px;
-        }
+        // img {
+        //   height: 40px;
+        //   width: 40px;
+        // }
         input {
           background-color: $mainBg;
           outline: none;
           border: none;
           padding: 10px;
-          width: 60vw;
+          width: auto;
           color: white;
-          font-size: 18px;
+          font-size: 16px;
           &::placeholder {
             color: rgb(178, 178, 178);
             text-transform: uppercase;
@@ -123,13 +123,14 @@
         }
         button {
           padding: 10px;
-          height: 60px;
-          width: 60px;
+          height: 100%;
+          width: fit-content;
           cursor: pointer;
           background-color: $orange;
           color: white;
           border: none;
           font-weight: 500;
+          font-size: 16px;
         }
       }
     }

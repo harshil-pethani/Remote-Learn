@@ -1,4 +1,7 @@
 import Glance from "../Models/Glance.js";
+import User from "../Models/User.js";
+import Course from "../Models/Course.js";
+import Order from "../Models/Order.js";
 
 export const glanceCreate = {
     validator: async (req, res, next) => {
@@ -70,8 +73,14 @@ export const glanceGet = async (req, res) => {
     try {
         const getDetail = await Glance.findOne();
 
-        return res.status(200).send(getDetail);
+
+        let teachers = await User.find({ usertype: "faculty" }).count();
+        let courses = await Course.find().count();
+        let students = await Order.find().count();
+        return res.status(200).send({ teachers, courses, students });
+
     } catch (e) {
+        console.log(e);
         return res.status(500).send("Detail Getting Failed ")
     }
 }

@@ -68,8 +68,8 @@ const Navbar = ({ top, color, page, scrolled }) => {
                     <button onClick={() => { navigate("/services") }} className="navBtn joinNow">
                         Join Now
                     </button>
-                    <button onClick={() => window.location.replace("https://www.eventbrite.com/o/forward-fitness-42146765523")} className="navBtn freeClass">
-                        Free Class
+                    <button onClick={() => { navigate("/demo-class") }} className="navBtn freeClass">
+                        Demo Class
                     </button>
                 </div>
                 <div className={activeMenu ? "active hamburger" : "hamburger"} onClick={() =>
@@ -111,18 +111,18 @@ const Navbar = ({ top, color, page, scrolled }) => {
 
                     <div className="menuBottom">
                         <p className="menuSlogan">
-                            Forward Fitness offers a new and refreshing approach to achieving your health and wellness goals.
+                            Remote Learn offers a new and refreshing approach to achieving your goals.
                         </p>
                         <div className="shortLinks">
-                            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/forwardfitness/?hl=en">
+                            <a target="_blank" rel="noreferrer" >
                                 <ion-icon name="logo-instagram"></ion-icon>
                             </a>
-                            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/ForwardFitness.biz">
+                            <a target="_blank" rel="noreferrer">
                                 <ion-icon name="logo-facebook"></ion-icon>
                             </a>
                         </div>
                         <p className="emailId">
-                            <span>EMAIL: </span>Amadou@foreverforward.org
+                            <span>EMAIL: </span>admin@remotelearn.org
                         </p>
                     </div>
                 </div>

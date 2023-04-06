@@ -111,7 +111,7 @@
     // border: 2px solid red;
 
     .title {
-      font-size: 25px;
+      font-size: 26px;
       text-align: center;
       position: relative;
 
@@ -129,7 +129,7 @@
 
     .questionsContainer {
       // border: 2px solid red;
-      margin-top: 60px;
+      margin-top: 50px;
       width: 100%;
       details {
         padding-bottom: 5px;
@@ -155,7 +155,7 @@
         position: relative;
         color: rgb(180, 180, 180);
         cursor: pointer;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 300;
         list-style: none;
         // border: 2px solid red;
@@ -172,7 +172,7 @@
       details .ans {
         padding: 10px;
         padding-top: 5px;
-        font-size: 20px;
+        font-size: 18px;
         width: 90%;
         text-align: left;
       }
@@ -197,7 +197,7 @@
       left: 50%;
       img {
         width: auto;
-        height: 50px;
+        height: 40px;
       }
     }
   }
