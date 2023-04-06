@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2d6458d4.css",
-    "main.js": "/static/js/main.2d1e6383.js",
+    "main.js": "/static/js/main.ae27658d.js",
     "static/media/student3.png": "/static/media/student3.f6bab7a49a335540b223.png",
     "static/media/heroImg.png": "/static/media/heroImg.821312de69b1ab8e4891.png",
     "static/media/student2.png": "/static/media/student2.32feafe440907ca6227a.png",
@@ -46,10 +46,10 @@
     "static/media/whoAreWeMobile.png": "/static/media/whoAreWeMobile.1221119cfee78fff43d0.png",
     "index.html": "/index.html",
     "main.2d6458d4.css.map": "/static/css/main.2d6458d4.css.map",
-    "main.2d1e6383.js.map": "/static/js/main.2d1e6383.js.map"
+    "main.ae27658d.js.map": "/static/js/main.ae27658d.js.map"
   },
   "entrypoints": [
     "static/css/main.2d6458d4.css",
-    "static/js/main.2d1e6383.js"
+    "static/js/main.ae27658d.js"
   ]
 }
