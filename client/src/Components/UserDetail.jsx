@@ -43,6 +43,8 @@ const UserDetail = () => {
                 setIsError(true);
                 setfinalPromocode("");
                 setCodeType("");
+                setFinalPrice(userSelectedCourse.price)
+                console.log(userSelectedCourse.price)
                 console.log(err);
                 if (err.response.status === 400) {
                     setResMsg(err.response.data.message);
