@@ -177,46 +177,6 @@ const AdminLogin = ({ setAdminLogged, setAdminDetails }) => {
                             <span className="subLink" onClick={() => { setResMsg(""); setActiveBox("forgotBox") }}>
                                 Forgot Password?
                             </span>
-                            <span className="subLink" onClick={() => { setResMsg(""); setActiveBox("register") }}>
-                                Register for new Admin
-                            </span>
-                        </div>
-                    }
-                    {
-                        activeBox === "register"
-                        &&
-                        <div className="loginBox">
-                            <h2 className="title">
-                                Welcome Back!
-                            </h2>
-                            <h3 className='slogan'>
-                                Register new Admin
-                            </h3>
-                            <form>
-                                <label htmlFor="email">
-                                    Email<span>*</span>
-                                </label>
-                                <input id="email" value={registerCredentials.email} type="email" onChange={(e) => setRegisterCredentials({ ...registerCredentials, email: e.target.value.toLowerCase() })} />
-
-                                <label htmlFor="username">
-                                    Username<span>*</span>
-                                </label>
-                                <input id="username" value={registerCredentials.username} type="text" onChange={(e) => setRegisterCredentials({ ...registerCredentials, username: e.target.value.toLowerCase() })} />
-
-                                <label htmlFor="password">
-                                    Password<span>*</span>
-                                </label>
-                                <input id="password" value={registerCredentials.password} onChange={(e) => setRegisterCredentials({ ...registerCredentials, password: e.target.value })} type="password" />
-                                <p className={isError ? "resMsg error" : "resMsg"}>
-                                    {resMsg}
-                                </p>
-                                <button disabled={isLoading} onClick={handleRegister}>
-                                    Register
-                                </button>
-                            </form>
-                            <span className="subLink" onClick={() => { setResMsg(""); setActiveBox("loginBox") }}>
-                                Back to Login !
-                            </span>
                         </div>
                     }
                     {

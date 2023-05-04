@@ -189,7 +189,7 @@ export const getFinalPrice = {
                 if (findOrder.length > 0) {
                     // console.log("Old User");
                     return res.status(400).json({
-                        message: "Invalid code"
+                        message: "you are not a new user"
                     })
                 }
                 return res.status(200).json({
